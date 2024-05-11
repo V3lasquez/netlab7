@@ -9,5 +9,10 @@
     <Grid>
         <Button Content="List Customers" Click="boton_1" HorizontalAlignment="Left" Margin="105,352,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="dgCustomers" Margin="27,66,262,235"></DataGrid>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="282,235,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="516,235,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Width="120"/>
+        <CheckBox x:Name="chkActive" Content="Active" HorizontalAlignment="Left" Margin="516,308,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="282,308,0,0" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Insertar" HorizontalAlignment="Left" Margin="282,352,0,0" VerticalAlignment="Top" Click="boton_insertar"/>
     </Grid>
 </Window>

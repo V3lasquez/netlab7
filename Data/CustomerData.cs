@@ -1,6 +1,7 @@
 ﻿using Entity;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -39,5 +40,35 @@ namespace Data
 
             return customers;
         }
+
+
+
+       
+            private string connectionString = "Data Source=LAB1504-17\\SQLEXPRESS;Initial Catalog=FacturaDB;User Id=userTecsup;Password=userTecsup03";
+
+            public void InsertCustomer(Customer customer)
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand("InsertCustomerProcedure", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@Name", customer.Name);
+                    command.Parameters.AddWithValue("@Address", customer.Address);
+                    command.Parameters.AddWithValue("@Phone", customer.Phone);
+                    command.Parameters.AddWithValue("@Active", customer.Active);
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de errores
+                        Console.WriteLine("Error al insertar cliente: " + ex.Message);
+                    }
+                }
+            }
     }
 }
